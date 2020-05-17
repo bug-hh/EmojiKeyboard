@@ -50,6 +50,11 @@
 		66A46056246FF77E00AEE738 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A46032246FF77E00AEE738 /* ConstraintDirectionalInsets.swift */; };
 		66A46057246FF77E00AEE738 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A46033246FF77E00AEE738 /* ConstraintLayoutSupportDSL.swift */; };
 		66A46058246FF77E00AEE738 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A46034246FF77E00AEE738 /* ConstraintMakerRelatable.swift */; };
+		688879C724711F5300E289B7 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 688879C624711F5300E289B7 /* Emoticons.bundle */; };
+		688879F0247138B500E289B7 /* Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688879EF247138B500E289B7 /* Emoticon.swift */; };
+		688879F224713C5F00E289B7 /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688879F124713C5F00E289B7 /* EmoticonPackage.swift */; };
+		688879F524713FA200E289B7 /* EmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688879F424713FA200E289B7 /* EmoticonManager.swift */; };
+		688879F724716F1400E289B7 /* String+Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688879F624716F1400E289B7 /* String+Emoji.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +103,11 @@
 		66A46032246FF77E00AEE738 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
 		66A46033246FF77E00AEE738 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		66A46034246FF77E00AEE738 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
+		688879C624711F5300E289B7 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		688879EF247138B500E289B7 /* Emoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoticon.swift; sourceTree = "<group>"; };
+		688879F124713C5F00E289B7 /* EmoticonPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
+		688879F424713FA200E289B7 /* EmoticonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonManager.swift; sourceTree = "<group>"; };
+		688879F624716F1400E289B7 /* String+Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Emoji.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +156,10 @@
 		66A4600D246FF33400AEE738 /* EmojiView */ = {
 			isa = PBXGroup;
 			children = (
+				688879F624716F1400E289B7 /* String+Emoji.swift */,
+				688879F324713F7D00E289B7 /* ViewModel */,
+				688879EE2471374500E289B7 /* Model */,
+				688879C624711F5300E289B7 /* Emoticons.bundle */,
 				66A4600E246FF35400AEE738 /* EmojiView.swift */,
 			);
 			path = EmojiView;
@@ -192,6 +206,23 @@
 				66A46034246FF77E00AEE738 /* ConstraintMakerRelatable.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		688879EE2471374500E289B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				688879EF247138B500E289B7 /* Emoticon.swift */,
+				688879F124713C5F00E289B7 /* EmoticonPackage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		688879F324713F7D00E289B7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				688879F424713FA200E289B7 /* EmoticonManager.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66A46006246FEA1700AEE738 /* LaunchScreen.storyboard in Resources */,
+				688879C724711F5300E289B7 /* Emoticons.bundle in Resources */,
 				66A46003246FEA1700AEE738 /* Assets.xcassets in Resources */,
 				66A46001246FEA1600AEE738 /* Main.storyboard in Resources */,
 			);
@@ -267,6 +299,7 @@
 			files = (
 				66A4604D246FF77E00AEE738 /* ConstraintRelation.swift in Sources */,
 				66A4604B246FF77E00AEE738 /* ConstraintMakerEditable.swift in Sources */,
+				688879F224713C5F00E289B7 /* EmoticonPackage.swift in Sources */,
 				66A46058246FF77E00AEE738 /* ConstraintMakerRelatable.swift in Sources */,
 				66A4603C246FF77E00AEE738 /* ConstraintInsets.swift in Sources */,
 				66A46053246FF77E00AEE738 /* ConstraintRelatableTarget.swift in Sources */,
@@ -280,6 +313,7 @@
 				66A46038246FF77E00AEE738 /* ConstraintMakerPriortizable.swift in Sources */,
 				66A45FFE246FEA1600AEE738 /* ViewController.swift in Sources */,
 				66A4600F246FF35400AEE738 /* EmojiView.swift in Sources */,
+				688879F0247138B500E289B7 /* Emoticon.swift in Sources */,
 				66A46052246FF77E00AEE738 /* Debugging.swift in Sources */,
 				66A4604C246FF77E00AEE738 /* ConstraintMaker.swift in Sources */,
 				66A4603B246FF77E00AEE738 /* ConstraintPriorityTarget.swift in Sources */,
@@ -290,6 +324,7 @@
 				66A46051246FF77E00AEE738 /* Constraint.swift in Sources */,
 				66A46045246FF77E00AEE738 /* ConstraintView.swift in Sources */,
 				66A45FFC246FEA1600AEE738 /* SceneDelegate.swift in Sources */,
+				688879F524713FA200E289B7 /* EmoticonManager.swift in Sources */,
 				66A46044246FF77E00AEE738 /* UILayoutSupport+Extensions.swift in Sources */,
 				66A46040246FF77E00AEE738 /* ConstraintPriority.swift in Sources */,
 				66A46035246FF77E00AEE738 /* ConstraintMultiplierTarget.swift in Sources */,
@@ -305,6 +340,7 @@
 				66A46043246FF77E00AEE738 /* ConstraintConfig.swift in Sources */,
 				66A46042246FF77E00AEE738 /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				66A4603D246FF77E00AEE738 /* ConstraintMakerFinalizable.swift in Sources */,
+				688879F724716F1400E289B7 /* String+Emoji.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

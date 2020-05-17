@@ -32,6 +32,8 @@ class EmojiView: UIView {
     private lazy var emojiCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: EmojiLayout())
     private lazy var toolBar = UIToolbar()
     
+    private lazy var packages = EmoticonManager.sharedManager.packages
+    
     private class EmojiLayout: UICollectionViewFlowLayout, UICollectionViewDelegateFlowLayout {
         override func prepare() {
             super.prepare()
@@ -100,8 +102,8 @@ private extension EmojiView {
         var items = [UIBarButtonItem]()
         
         var index = 0
-        for s in ["最近", "默认", "emoji", "浪小花"] {
-            items.append(UIBarButtonItem(title: s, style: .plain, target: self, action: #selector(itemClicked(item:))))
+        for p in packages {
+            items.append(UIBarButtonItem(title: p.group_name_cn, style: .plain, target: self, action: #selector(itemClicked(item:))))
             items.last?.tag = index
             index += 1
             
@@ -116,20 +118,60 @@ private extension EmojiView {
     
     func prepareCollectionView() {
         emojiCollectionView.backgroundColor = .lightGray
-        emojiCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: EmojiCellID)
+        emojiCollectionView.register(EmojiCell.self, forCellWithReuseIdentifier: EmojiCellID)
         emojiCollectionView.dataSource = self
     }
     
 }
 
 extension EmojiView: UICollectionViewDataSource {
+    // 返回有多少组表情包
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return packages.count
+        
+    }
+    // 返回每组表情包的个数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 24 * 4
+        return packages[section].emoticons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmojiCellID, for: indexPath)
-        cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.red : UIColor.green
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmojiCellID, for: indexPath) as! EmojiCell
+        cell.emoticon = packages[indexPath.section].emoticons[indexPath.item]
         return cell
     }
+}
+
+// MARK: - 自定义 UICollectionViewCell
+private class EmojiCell: UICollectionViewCell {
+    lazy var emojiButton: UIButton = UIButton()
+    
+    var emoticon: Emoticon? {
+        didSet {
+            emojiButton.setImage(UIImage(contentsOfFile: emoticon!.imagePath), for: .normal)
+            // 设置删除按钮
+            if emoticon!.isRemoved {
+                emojiButton.setImage(UIImage(named: "compose_emotion_delete"), for: .normal)
+            }
+            // 千万不要加上这个判空，如果加上了，由于 cell 的复用，可能导致 非 emoji 的 cell 显示不正常
+//            if emoticon?.emoji != nil {}
+            emojiButton.setTitle(emoticon?.emoji, for: .normal)
+        }
+    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentView.addSubview(emojiButton)
+        emojiButton.backgroundColor = .white
+        emojiButton.setTitleColor(.black, for: .normal)
+        emojiButton.frame = bounds.insetBy(dx: 4, dy: 4)
+        // 因为 emoji 本质上是一个字符串，所以可以通过调整字体大小，调整 emoji 的大小
+        emojiButton.titleLabel?.font = UIFont.systemFont(ofSize: 32)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
 }

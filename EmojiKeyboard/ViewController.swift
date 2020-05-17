@@ -20,6 +20,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         demo()
+        let manager = EmoticonManager.sharedManager
+        print(manager)
     }
 
     func demo() {

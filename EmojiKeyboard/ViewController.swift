@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     /*
      这个调用的是 无参构造函数，底层是 init()，而 init() 会调用 init(frame:) 这个构造函数
      */
-    private lazy var emojiView: EmojiView = EmojiView()
+    private lazy var emojiView: EmojiView = EmojiView { [weak self] (emoticon) in
+        self?.textView.text = emoticon.chs
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

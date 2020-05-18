@@ -13,15 +13,24 @@ private let EmojiCellID = "EmojiCellID"
 class EmojiView: UIView {
 
     @objc func itemClicked(item: UIBarButtonItem) {
-        print(item.tag)
+        let indexPath = NSIndexPath(item: 0, section: item.tag)
+        emojiCollectionView.scrollToItem(at: indexPath as IndexPath, at: .left, animated: false)
     }
     
-    override init(frame: CGRect) {
+    init(callBack: @escaping (Emoticon) -> ()) {
+        self.emojiCallBack = callBack
         var rect = UIScreen.main.bounds
         rect.size.height = 320
         super.init(frame: rect)
         backgroundColor = .red
         setupUI()
+        
+        // 当主线程中有其他任务需要执行时，将不会执行主队列中的任务，只有当其他任务执行完成后，才会调度主队列中的任务
+        DispatchQueue.main.async {
+            // 默认滚动到「默认表情包组」
+            let indexPath = NSIndexPath(item: 0, section: 1)
+            self.emojiCollectionView.scrollToItem(at: indexPath as IndexPath, at: .left, animated: false)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -33,6 +42,8 @@ class EmojiView: UIView {
     private lazy var toolBar = UIToolbar()
     
     private lazy var packages = EmoticonManager.sharedManager.packages
+    
+    private var emojiCallBack: (Emoticon) -> ()
     
     private class EmojiLayout: UICollectionViewFlowLayout, UICollectionViewDelegateFlowLayout {
         override func prepare() {
@@ -120,10 +131,12 @@ private extension EmojiView {
         emojiCollectionView.backgroundColor = .lightGray
         emojiCollectionView.register(EmojiCell.self, forCellWithReuseIdentifier: EmojiCellID)
         emojiCollectionView.dataSource = self
+        emojiCollectionView.delegate = self
     }
     
 }
 
+// MARK: - UICollectionView 数据源方法
 extension EmojiView: UICollectionViewDataSource {
     // 返回有多少组表情包
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -140,6 +153,15 @@ extension EmojiView: UICollectionViewDataSource {
         cell.emoticon = packages[indexPath.section].emoticons[indexPath.item]
         return cell
     }
+}
+
+// MARK: - UICollectionViewDelegate
+extension EmojiView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let em = packages[indexPath.section].emoticons[indexPath.item]
+        emojiCallBack(em)
+    }
+    
 }
 
 // MARK: - 自定义 UICollectionViewCell
@@ -166,6 +188,9 @@ private class EmojiCell: UICollectionViewCell {
         emojiButton.frame = bounds.insetBy(dx: 4, dy: 4)
         // 因为 emoji 本质上是一个字符串，所以可以通过调整字体大小，调整 emoji 的大小
         emojiButton.titleLabel?.font = UIFont.systemFont(ofSize: 32)
+        
+        // 需要在 UICollectionViewCell 层，拦截用户点击事件，所以需要关闭 UIButton 的 UI 交互
+        emojiButton.isUserInteractionEnabled = false
     }
     
     required init?(coder: NSCoder) {

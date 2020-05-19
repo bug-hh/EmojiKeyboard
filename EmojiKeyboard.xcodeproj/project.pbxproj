@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		669B5B9B247400A00080D305 /* UITextView+Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669B5B9A247400A00080D305 /* UITextView+Emoticon.swift */; };
 		66A45FFA246FEA1600AEE738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A45FF9246FEA1600AEE738 /* AppDelegate.swift */; };
 		66A45FFC246FEA1600AEE738 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A45FFB246FEA1600AEE738 /* SceneDelegate.swift */; };
 		66A45FFE246FEA1600AEE738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A45FFD246FEA1600AEE738 /* ViewController.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		669B5B9A247400A00080D305 /* UITextView+Emoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Emoticon.swift"; sourceTree = "<group>"; };
 		66A45FF6246FEA1600AEE738 /* EmojiKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A45FF9246FEA1600AEE738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66A45FFB246FEA1600AEE738 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				688879C624711F5300E289B7 /* Emoticons.bundle */,
 				66A4600E246FF35400AEE738 /* EmojiView.swift */,
 				686331D7247360BA00733C5D /* EmoticonAttachment.swift */,
+				669B5B9A247400A00080D305 /* UITextView+Emoticon.swift */,
 			);
 			path = EmojiView;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				66A46037246FF77E00AEE738 /* ConstraintDescription.swift in Sources */,
 				66A46049246FF77E00AEE738 /* ConstraintConstantTarget.swift in Sources */,
 				66A46041246FF77E00AEE738 /* ConstraintInsetTarget.swift in Sources */,
+				669B5B9B247400A00080D305 /* UITextView+Emoticon.swift in Sources */,
 				686331D8247360BA00733C5D /* EmoticonAttachment.swift in Sources */,
 				66A46036246FF77E00AEE738 /* LayoutConstraintItem.swift in Sources */,
 				66A46046246FF77E00AEE738 /* ConstraintLayoutGuide.swift in Sources */,

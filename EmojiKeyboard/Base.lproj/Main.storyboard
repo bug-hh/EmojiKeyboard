@@ -16,20 +16,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="48B-GF-okB">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Doa-qc-KQR">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="Bsa-GP-eNV">
+                                        <barButtonItem key="rightBarButtonItem" title="发送" id="pB8-F5-QlI">
+                                            <connections>
+                                                <action selector="sendText:" destination="BYZ-38-t0r" id="EV7-ux-qP3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="48B-GF-okB" secondAttribute="bottom" id="Hlv-cr-WeH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="48B-GF-okB" secondAttribute="trailing" id="HmL-IE-BRh"/>
+                            <constraint firstItem="48B-GF-okB" firstAttribute="top" secondItem="Doa-qc-KQR" secondAttribute="bottom" id="IMR-Ct-9eg"/>
+                            <constraint firstItem="Doa-qc-KQR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JuV-bR-aZe"/>
                             <constraint firstItem="48B-GF-okB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vvz-ek-JMT"/>
-                            <constraint firstItem="48B-GF-okB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="itP-aK-Mjz"/>
+                            <constraint firstItem="Doa-qc-KQR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zak-Li-Cwj"/>
+                            <constraint firstItem="Doa-qc-KQR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gE5-Zs-7xu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -39,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>

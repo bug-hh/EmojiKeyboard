@@ -50,6 +50,7 @@
 		66A46056246FF77E00AEE738 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A46032246FF77E00AEE738 /* ConstraintDirectionalInsets.swift */; };
 		66A46057246FF77E00AEE738 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A46033246FF77E00AEE738 /* ConstraintLayoutSupportDSL.swift */; };
 		66A46058246FF77E00AEE738 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A46034246FF77E00AEE738 /* ConstraintMakerRelatable.swift */; };
+		686331D8247360BA00733C5D /* EmoticonAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686331D7247360BA00733C5D /* EmoticonAttachment.swift */; };
 		688879C724711F5300E289B7 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 688879C624711F5300E289B7 /* Emoticons.bundle */; };
 		688879F0247138B500E289B7 /* Emoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688879EF247138B500E289B7 /* Emoticon.swift */; };
 		688879F224713C5F00E289B7 /* EmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688879F124713C5F00E289B7 /* EmoticonPackage.swift */; };
@@ -103,6 +104,7 @@
 		66A46032246FF77E00AEE738 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
 		66A46033246FF77E00AEE738 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		66A46034246FF77E00AEE738 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
+		686331D7247360BA00733C5D /* EmoticonAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonAttachment.swift; sourceTree = "<group>"; };
 		688879C624711F5300E289B7 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		688879EF247138B500E289B7 /* Emoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoticon.swift; sourceTree = "<group>"; };
 		688879F124713C5F00E289B7 /* EmoticonPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonPackage.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				688879EE2471374500E289B7 /* Model */,
 				688879C624711F5300E289B7 /* Emoticons.bundle */,
 				66A4600E246FF35400AEE738 /* EmojiView.swift */,
+				686331D7247360BA00733C5D /* EmoticonAttachment.swift */,
 			);
 			path = EmojiView;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				66A46037246FF77E00AEE738 /* ConstraintDescription.swift in Sources */,
 				66A46049246FF77E00AEE738 /* ConstraintConstantTarget.swift in Sources */,
 				66A46041246FF77E00AEE738 /* ConstraintInsetTarget.swift in Sources */,
+				686331D8247360BA00733C5D /* EmoticonAttachment.swift in Sources */,
 				66A46036246FF77E00AEE738 /* LayoutConstraintItem.swift in Sources */,
 				66A46046246FF77E00AEE738 /* ConstraintLayoutGuide.swift in Sources */,
 				66A4603E246FF77E00AEE738 /* ConstraintDSL.swift in Sources */,

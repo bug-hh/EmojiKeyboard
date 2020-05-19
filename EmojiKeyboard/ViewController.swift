@@ -16,10 +16,26 @@ class ViewController: UIViewController {
      */
     private lazy var emojiView: EmojiView = EmojiView { [weak self] (emoticon) in
         self?.insertEmoticon(em: emoticon)
+        
+    }
+    
+    
+    @IBAction func sendText(_ sender: UIBarButtonItem) {
+        let attrText = textView.attributedText
+        var strM = String()
+        // 遍历属性文本
+        attrText?.enumerateAttributes(in: NSRange(location: 0, length: attrText!.length), options: [], using: { (dict, range, _) in
+            if let attachment = dict[NSAttributedString.Key(rawValue: "NSAttachment")] as? EmoticonAttachment {
+                strM.append(attachment.emoticon.chs ?? "")
+            } else {
+                let str = (attrText!.string as NSString).substring(with: range)
+                strM.append(str)
+            }
+        })
+        print(strM)
     }
     
     private func insertEmoticon(em: Emoticon) {
-        print(em)
         // 空白表情
         if em.isEmpty {
             return
@@ -41,10 +57,10 @@ class ViewController: UIViewController {
     }
     
     private func insertImageEmoticon(em: Emoticon) {
-        print(em)
+//        print(em)
         
         // 图片属性文本
-        let attachment = NSTextAttachment()
+        let attachment = EmoticonAttachment(emoticon: em)
         attachment.image = UIImage(contentsOfFile: em.imagePath)
         // 线高，表示字的高度
         let lineHeight = textView.font!.lineHeight
@@ -77,8 +93,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         demo()
-        let manager = EmoticonManager.sharedManager
-        print(manager)
+//        let manager = EmoticonManager.sharedManager
     }
 
     func demo() {

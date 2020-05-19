@@ -72,9 +72,6 @@ class EmojiView: UIView {
             let col: CGFloat = 6
             
             let w = collectionView.bounds.width / col
-            print("w = \(w)")
-            print("width = \(collectionView.bounds.width)")
-            
             return CGSize(width: w, height: w)
             
         }
